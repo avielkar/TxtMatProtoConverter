@@ -12,6 +12,7 @@ parameter_index = 1;
 trial_num = 1;
 first_trial = true;
 savedInfo = struct;
+trial_struct_array = struct;
 while(ischar(tline))
 %read line from the file one by constructing structures untill each
 %'Trial#' apperas
@@ -22,19 +23,21 @@ while(ischar(tline))
     field_val = splined_line(2);
     
     %fill the parameter struct
-    current_parameter_struct.name = field_name;
-    current_parameter_struct.value = field_val;
+    current_parameter_struct.name = char(field_name);
+    current_parameter_struct.value = char(field_val);
     
     if(strcmp(field_name, 'Trial') == 1 && ~first_trial)
         savedInfo(trial_num).TrialData= trial_struct_array;
         %init the trial_struct_array
         parameter_index = 1;
         trial_num = trial_num + 1;
+        trial_struct_array = struct;
     else
         first_trial = false;
     end
     
-    trial_struct_array(parameter_index) = current_parameter_struct;
+    trial_struct_array(trial_num).Param(parameter_index).name = current_parameter_struct.name;
+    trial_struct_array(trial_num).Param(parameter_index).value = current_parameter_struct.value;
     parameter_index = parameter_index + 1;
     
     tline = fgetl(fid)
