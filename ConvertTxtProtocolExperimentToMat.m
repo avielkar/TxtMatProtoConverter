@@ -46,7 +46,7 @@ function ConvertTxtProtocolExperimentToMat( file_path )
     end
 
     %save the data struct to a mat file.
-    splitted_file_path= strsplit(file_path , 'txt');
+    splitted_file_path= strsplit(file_path , '.txt');
     splitted_file_path_string = char(splitted_file_path);
     parsed_file_path = strcat(splitted_file_path_string , '.mat');
     save ( parsed_file_path , 'savedInfo');
