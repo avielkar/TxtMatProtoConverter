@@ -37,10 +37,12 @@ while(ischar(tline))
     end
     
     %save the parameter to the ciurrent trial.
-    trial_struct_array.Param(parameter_index).name = current_parameter_struct;
+    trial_struct_array.Param(parameter_index).name = current_parameter_struct.name;
+    trial_struct_array.Param(parameter_index).value = current_parameter_struct.value;
     parameter_index = parameter_index + 1;
     
     tline = fgetl(fid);
 end
 
+%save the data struct to a mat file.
 save ( 'C:\AvisData\2018_08_01_11-55 Rat 20 - Remy2.mat' , 'savedInfo');
