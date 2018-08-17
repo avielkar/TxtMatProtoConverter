@@ -40,5 +40,7 @@ while(ischar(tline))
     trial_struct_array(trial_num).Param(parameter_index).value = current_parameter_struct.value;
     parameter_index = parameter_index + 1;
     
-    tline = fgetl(fid)
+    tline = fgetl(fid);
 end
+
+save ( 'C:\AvisData\2018_08_01_11-55 Rat 20 - Remy.mat' , savedInfo);
