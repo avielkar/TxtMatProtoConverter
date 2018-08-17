@@ -25,6 +25,10 @@ while(ischar(tline))
     %fill the parameter struct
     current_parameter_struct.name = char(field_name);
     current_parameter_struct.value = char(field_val);
+    [numeric_value , success]  = str2num(current_parameter_struct.value);
+    if(success == 1)
+        current_parameter_struct.value = numeric_value;
+    end
     
     if(strcmp(field_name, 'Trial') == 1 && ~first_trial)
         savedInfo(trial_num).TrialData= trial_struct_array;
