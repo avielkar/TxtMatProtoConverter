@@ -36,8 +36,8 @@ while(ischar(tline))
         first_trial = false;
     end
     
-    trial_struct_array(trial_num).Param(parameter_index).name = current_parameter_struct.name;
-    trial_struct_array(trial_num).Param(parameter_index).value = current_parameter_struct.value;
+    trial_struct_array.Param(parameter_index).name = current_parameter_struct.name;
+    trial_struct_array.Param(parameter_index).value = current_parameter_struct.value;
     parameter_index = parameter_index + 1;
     
     tline = fgetl(fid);
