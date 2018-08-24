@@ -36,6 +36,9 @@ function ConvertTxtProtocolExperimentToMat( file_path )
         else
             first_trial = false;
         end
+        
+        %add also the final trial to the saved data.
+        savedInfo(trial_num).TrialData= trial_struct_array;
 
         %save the parameter to the ciurrent trial.
         trial_struct_array.Param(parameter_index).name = current_parameter_struct.name;
